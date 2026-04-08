@@ -29,6 +29,7 @@ export default function Calendar() {
   const [isFlipping, setIsFlipping] = useState(false);
   const [flipDirection, setFlipDirection] = useState<'next' | 'prev'>('next');
   const [showNotes, setShowNotes] = useState(false);
+  const [noteInputValue, setNoteInputValue] = useState('');
   const { notes, addNote: addNoteToStore, deleteNote, editNote } = useNotes();
 
   const addNote = (note: Omit<Note, 'id'>) => {
@@ -133,22 +134,40 @@ export default function Calendar() {
                     <div className={`${theme.lightBg} border ${theme.lightBorder} rounded-lg p-4 transition-colors duration-500`}>
                       <h3 className="text-sm font-semibold text-gray-800 mb-3">Quick Note for Selected Range</h3>
                       <textarea
+                        value={noteInputValue}
+                        onChange={(e) => setNoteInputValue(e.target.value)}
                         placeholder="Add a note for this date range..."
                         className="w-full text-sm p-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gray-300 focus:border-transparent outline-none resize-none"
                         rows={2}
                         onKeyDown={(e) => {
-                          if (e.key === 'Enter' && e.ctrlKey && (e.target as HTMLTextAreaElement).value.trim()) {
-                            const noteContent = (e.target as HTMLTextAreaElement).value.trim();
+                          if (e.key === 'Enter' && e.ctrlKey && noteInputValue.trim()) {
                             addNote({
                               date: selectedRange.start!.toISOString().split('T')[0],
                               title: `${formatDate(selectedRange.start!)}${selectedRange.end ? ` - ${formatDate(selectedRange.end!)}` : ''}`,
-                              content: noteContent,
+                              content: noteInputValue.trim(),
                             });
-                            (e.target as HTMLTextAreaElement).value = '';
+                            setNoteInputValue('');
                           }
                         }}
                       />
-                      <p className="text-xs text-gray-500 mt-2">Press Ctrl+Enter to add note</p>
+                      <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center mt-2 gap-2">
+                        <p className="text-xs text-gray-500">Press Ctrl+Enter to add note</p>
+                        <button
+                          onClick={() => {
+                            if (noteInputValue.trim()) {
+                              addNote({
+                                date: selectedRange.start!.toISOString().split('T')[0],
+                                title: `${formatDate(selectedRange.start!)}${selectedRange.end ? ` - ${formatDate(selectedRange.end!)}` : ''}`,
+                                content: noteInputValue.trim(),
+                              });
+                              setNoteInputValue('');
+                            }
+                          }}
+                          className={`w-full sm:w-auto px-4 py-1.5 text-xs font-medium text-white rounded-md ${theme.primaryBg} hover:opacity-90 transition-opacity whitespace-nowrap shadow-sm`}
+                        >
+                          Add Note
+                        </button>
+                      </div>
                     </div>
                   )}
 
