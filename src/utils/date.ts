@@ -96,7 +96,6 @@ export function getMonthData(date: Date): Date[] {
   }
   
   function getMothersDayDate(year: number): string {
-    const may = new Date(year, 4, 1);
     let sundayCount = 0;
     for (let day = 1; day <= 31; day++) {
       const date = new Date(year, 4, day);
@@ -111,7 +110,6 @@ export function getMonthData(date: Date): Date[] {
   }
   
   function getFathersDayDate(year: number): string {
-    const june = new Date(year, 5, 1);
     let sundayCount = 0;
     for (let day = 1; day <= 30; day++) {
       const date = new Date(year, 5, day);
@@ -126,7 +124,6 @@ export function getMonthData(date: Date): Date[] {
   }
   
   function getLaborDayDate(year: number): string {
-    const september = new Date(year, 8, 1);
     for (let day = 1; day <= 7; day++) {
       const date = new Date(year, 8, day);
       if (date.getDay() === 1) {
@@ -137,7 +134,6 @@ export function getMonthData(date: Date): Date[] {
   }
   
   function getThanksgivingDate(year: number): string {
-    const november = new Date(year, 10, 1);
     let thursdayCount = 0;
     for (let day = 1; day <= 30; day++) {
       const date = new Date(year, 10, day);
