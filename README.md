@@ -23,8 +23,6 @@ A highly polished, interactive calendar application featuring **dynamic monthly 
 
 ## 🖼️ Screenshots
 
-> *Add screenshots of your project here by replacing these placeholder paths!*
-
 | Dynamic Themes | Notes Panel |
 |:---:|:---:|
 | ![Theme Morphing Showcase](./screenshots/themes.jpeg) | ![Note Manager View](./screenshots/notes.png) |
