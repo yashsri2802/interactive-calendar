@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { ChevronLeft, ChevronRight, Calendar as CalendarIcon, StickyNote } from 'lucide-react';
-import { getMonthData, formatDate, isSameDay, isInRange, getHolidays } from '../utils/dateUtils';
-import { Note, useNotes } from '../hooks/useNotes';
+import { getMonthData, formatDate, isSameDay, isInRange, getHolidays } from '../utils/date';
+import { Note, useNotes } from '../hooks/notes';
 import NotesPanel from './NotesPanel';
 
 const MONTH_IMAGES = [

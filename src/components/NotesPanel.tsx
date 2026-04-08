@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { X, Plus, Trash2, Calendar } from 'lucide-react';
-import { Note } from '../hooks/useNotes';
-import { formatDate } from '../utils/dateUtils';
+import { Note } from '../hooks/notes';
+import { formatDate } from '../utils/date';
 
 interface NotesPanelProps {
   isOpen: boolean;
