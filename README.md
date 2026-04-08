@@ -78,4 +78,4 @@ Make sure you have [Node.js](https://nodejs.org/) installed on your machine.
 - **Icons:** Lucide React
 
 ---
-*Made with ❤️ by [yashsri2802]*
+*Made with ❤️ by [yashsri2802](https://github.com/yashsri2802)*
