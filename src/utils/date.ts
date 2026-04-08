@@ -48,47 +48,49 @@ export function getMonthData(date: Date): Date[] {
     });
   }
   
-  interface Holiday {
+  export interface Holiday {
     date: string;
     name: string;
+    icon: string;
+    color: string;
   }
   
   export function getHolidays(year: number, month: number): Holiday[] {
     const holidays: Record<string, Holiday[]> = {
       '0': [
-        { date: `${year}-01-01`, name: "New Year's Day" },
+        { date: `${year}-01-01`, name: "New Year's Day", icon: "🎊", color: "text-blue-500" },
       ],
       '1': [
-        { date: `${year}-02-14`, name: "Valentine's Day" },
+        { date: `${year}-02-14`, name: "Valentine's Day", icon: "❤️", color: "text-rose-500" },
       ],
       '2': [
-        { date: `${year}-03-17`, name: "St. Patrick's Day" },
+        { date: `${year}-03-17`, name: "St. Patrick's Day", icon: "☘️", color: "text-emerald-500" },
       ],
       '3': [],
       '4': [
-        { date: `${year}-05-${getMothersDayDate(year)}`, name: "Mother's Day" },
+        { date: `${year}-05-${getMothersDayDate(year)}`, name: "Mother's Day", icon: "💐", color: "text-fuchsia-500" },
       ],
       '5': [
-        { date: `${year}-06-${getFathersDayDate(year)}`, name: "Father's Day" },
-        { date: `${year}-06-19`, name: "Juneteenth" },
+        { date: `${year}-06-${getFathersDayDate(year)}`, name: "Father's Day", icon: "👔", color: "text-blue-600" },
+        { date: `${year}-06-19`, name: "Juneteenth", icon: "🌟", color: "text-red-600" },
       ],
       '6': [
-        { date: `${year}-07-04`, name: "Independence Day" },
+        { date: `${year}-07-04`, name: "Independence Day", icon: "🎆", color: "text-red-500" },
       ],
       '7': [],
       '8': [
-        { date: `${year}-09-${getLaborDayDate(year)}`, name: "Labor Day" },
+        { date: `${year}-09-${getLaborDayDate(year)}`, name: "Labor Day", icon: "🛠️", color: "text-amber-600" },
       ],
       '9': [
-        { date: `${year}-10-31`, name: "Halloween" },
+        { date: `${year}-10-31`, name: "Halloween", icon: "🎃", color: "text-orange-500" },
       ],
       '10': [
-        { date: `${year}-11-${getThanksgivingDate(year)}`, name: "Thanksgiving" },
-        { date: `${year}-11-11`, name: "Veterans Day" },
+        { date: `${year}-11-${getThanksgivingDate(year)}`, name: "Thanksgiving", icon: "🦃", color: "text-orange-600" },
+        { date: `${year}-11-11`, name: "Veterans Day", icon: "🎖️", color: "text-blue-700" },
       ],
       '11': [
-        { date: `${year}-12-25`, name: "Christmas" },
-        { date: `${year}-12-31`, name: "New Year's Eve" },
+        { date: `${year}-12-25`, name: "Christmas", icon: "🎄", color: "text-red-500" },
+        { date: `${year}-12-31`, name: "New Year's Eve", icon: "🥂", color: "text-amber-500" },
       ],
     };
   
