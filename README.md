@@ -27,7 +27,7 @@ A highly polished, interactive calendar application featuring **dynamic monthly 
 
 | Dynamic Themes | Notes Panel |
 |:---:|:---:|
-| ![Theme Morphing Showcase](./screenshots/theme.png) | ![Note Manager View](./screenshots/notes.png) |
+| ![Theme Morphing Showcase](./screenshots/theme.jpeg) | ![Note Manager View](./screenshots/notes.png) |
 
 ---
 
