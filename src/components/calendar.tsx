@@ -28,7 +28,7 @@ export default function Calendar() {
   const [isFlipping, setIsFlipping] = useState(false);
   const [flipDirection, setFlipDirection] = useState<'next' | 'prev'>('next');
   const [showNotes, setShowNotes] = useState(false);
-  const { notes, addNote: addNoteToStore, deleteNote } = useNotes();
+  const { notes, addNote: addNoteToStore, deleteNote, editNote } = useNotes();
 
   const addNote = (note: Omit<Note, 'id'>) => {
     addNoteToStore(note);
@@ -138,7 +138,8 @@ export default function Calendar() {
                             const noteContent = (e.target as HTMLTextAreaElement).value.trim();
                             addNote({
                               date: selectedRange.start!.toISOString().split('T')[0],
-                              content: `${formatDate(selectedRange.start!)}${selectedRange.end ? ` - ${formatDate(selectedRange.end!)}` : ''}: ${noteContent}`,
+                              title: `${formatDate(selectedRange.start!)}${selectedRange.end ? ` - ${formatDate(selectedRange.end!)}` : ''}`,
+                              content: noteContent,
                             });
                             (e.target as HTMLTextAreaElement).value = '';
                           }
@@ -167,6 +168,7 @@ export default function Calendar() {
                       ) : (
                         notes.slice(0, 2).map(note => (
                           <div key={note.id} className="text-sm text-gray-600 border-l-2 border-blue-400 pl-2">
+                            {note.title && <div className="font-semibold text-xs text-gray-800 mb-0.5">{note.title}</div>}
                             <div className="truncate">{note.content}</div>
                           </div>
                         ))
@@ -275,6 +277,7 @@ export default function Calendar() {
         notes={notes}
         onAddNote={addNote}
         onDeleteNote={deleteNote}
+        onEditNote={editNote}
         selectedRange={selectedRange}
       />
     </div>

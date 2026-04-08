@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 export interface Note {
   id: string;
   date: string;
+  title?: string;
   content: string;
 }
 
@@ -39,9 +40,14 @@ export function useNotes() {
     saveNotes(notes.filter(note => note.id !== id));
   };
 
+  const editNote = (id: string, updatedContent: string) => {
+    saveNotes(notes.map(note => note.id === id ? { ...note, content: updatedContent } : note));
+  };
+
   return {
     notes,
     addNote,
     deleteNote,
+    editNote,
   };
 }
