@@ -7,7 +7,7 @@
 
 A highly polished, interactive calendar application featuring **dynamic monthly color themes**, local note persistence, interactive holiday markers, and a beautiful UI built entirely with React and Tailwind CSS.
 
-> 🚀 **[View Live Demo Here](#)** *(Add your Vercel/Netlify link here)*
+> 🚀 **[View Live Demo Here](https://dynamic-interactive-calendar.netlify.app/)** 
 
 ---
 
